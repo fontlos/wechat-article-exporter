@@ -10,18 +10,21 @@
 </template>
 
 <script setup lang="ts">
-import { ModuleRegistry } from 'ag-grid-community';
-import { AllEnterpriseModule, LicenseManager } from 'ag-grid-enterprise';
 import { isDev } from '~/config';
 import { isChromeBrowser } from '~/utils';
+// 目前已知 侧边栏死掉了
+// import { ModuleRegistry } from 'ag-grid-community';
+// import { AllEnterpriseModule, LicenseManager } from 'ag-grid-enterprise';
+// const runtimeConfig = useRuntimeConfig();
+// ModuleRegistry.registerModules([AllEnterpriseModule]);
+// LicenseManager.setLicenseKey(runtimeConfig.public.aggridLicense);
 
-const runtimeConfig = useRuntimeConfig();
-
-ModuleRegistry.registerModules([AllEnterpriseModule]);
-LicenseManager.setLicenseKey(runtimeConfig.public.aggridLicense);
+// 只注册包含核心功能的“社区版工具箱”
+import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
+ModuleRegistry.registerModules([AllCommunityModule]);
 
 if (!isChromeBrowser()) {
-  alert('为了更好的用户体验，推荐使用 Chrome 浏览器。');
+  alert('推荐使用 Chrome 浏览器。');
 }
 </script>
 

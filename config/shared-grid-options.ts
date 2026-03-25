@@ -3,6 +3,7 @@ import { type GridOptions, themeQuartz } from 'ag-grid-community';
 import GridLoading from '~/components/grid/Loading.vue';
 import GridNoRows from '~/components/grid/NoRows.vue';
 
+// TODO: 移除了企业版, 这个应该死掉了
 // 创建自定义的中文本地化，覆盖 columns 键
 const customLocaleText = {
   ...AG_GRID_LOCALE_CN,
